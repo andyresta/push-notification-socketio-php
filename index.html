@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Client Socket IO</title>
+</head>
+<body>
+<script src="http://127.0.0.1:81/socket.io/socket.io.js"></script>
+<script>
+//define socket
+	var socket = io.connect('http://127.0.0.1:81');
+//register your id to socket, myID is unique user from your application
+  socket.emit('reg', { msg: 'free message to register',myID: '7866' });
+//listening some message come from
+  socket.on('message', function (data) {
+    console.log(data);
+  });
+//listening some pending message come from when anyone send to you but offline
+	socket.on('message_pending', function (data) {
+    console.log(data);
+		alert('sdfsdfs');
+  });
+// function to send some message, you can call this function by adding some parameter
+// message not can array or object not only text
+	function send_message(toID,message){
+		socket.emit('send_message', { msg: message,toID: '7866' });
+	}
+</script>
+</body>
+</html>
