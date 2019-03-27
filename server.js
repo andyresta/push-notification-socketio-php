@@ -1,15 +1,20 @@
-var app = require('express')();
-/* this is define that your server not using HTTPS / SSL */
-var server = require('http').Server(app);
 /* this is define that your server using HTTPS / SSL */
 /*
+var fs = require('fs');
+var app = require('express')();
+var https = require('require');
 var server = https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/eoffice.bankjateng.co.id/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/eoffice.bankjateng.co.id/fullchain.pem'),
     requestCert: false,
     rejectUnauthorized: false
 },app);
+var io = require('socket.io')(server);
 */
+
+/* using this when your server not using HTTPS / SSL */
+var app = require('express')();
+var server = require('http').Server(app);
 var io = require('socket.io')(server);
 //==========================================================================================
 var users = [];
