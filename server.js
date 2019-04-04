@@ -4,8 +4,8 @@ var fs = require('fs');
 var app = require('express')();
 var https = require('require');
 var server = https.createServer({
-    key: fs.readFileSync('/etc/letsencrypt/live/eoffice.bankjateng.co.id/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/eoffice.bankjateng.co.id/fullchain.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/yourdirectoryprivkey/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/yourdirectoryfullchain/fullchain.pem'),
     requestCert: false,
     rejectUnauthorized: false
 },app);
